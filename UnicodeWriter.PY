@@ -122,6 +122,10 @@ def SaveOutputasText(textOutput):
 # function to be called convert english text to unicode
 # and fills the corresponding text box
 def ConvertToUnicode(textval, langFlag, textout):
+    if langFlag not in [TAMIL_FLAG, MALAYALAM_FLAG]:
+        textout.delete('1.0', END)
+        textout.insert(INSERT, "Please choose the language.")
+        return None
 
     UserCode = textval.get(1.0, END)
     textout.delete('1.0', END)
